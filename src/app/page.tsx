@@ -9,7 +9,7 @@ const GithubIcon = () => (
 );
 
 export default function Portfolio() {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
 
   const projects = [
     {
