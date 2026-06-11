@@ -173,7 +173,7 @@ export default function Portfolio() {
             
             <div className="mb-3 text-sm font-bold text-white uppercase tracking-wider">Architecture Stack</div>
             <div className="flex flex-wrap gap-2">
-              {selectedProject.tags.map((tag, i) => (
+              {selectedProject.tags.map((tag: string, i: number) => (
                 <span key={i} className="px-3 py-1.5 bg-black/50 rounded-lg text-xs font-medium text-zinc-300 border border-white/5">
                   {tag}
                 </span>
