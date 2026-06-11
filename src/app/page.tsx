@@ -22,7 +22,7 @@ export default function Portfolio() {
     },
     {
       title: "EazyBillz",
-      role: "Lead Full-Stack Engineer",
+      role: "Full-Stack Engineer",
       desc: "Engineered a background data-sync agent using Node.js to extract daily financial transaction data from legacy FoxPro (.DBF) databases and push it to a live, mobile-responsive Next.js analytics dashboard.",
       tags: ["Node.js", "Next.js", "Legacy Systems"],
       icon: <Terminal className="w-6 h-6 text-cyan-400" />,
@@ -30,7 +30,7 @@ export default function Portfolio() {
     },
     {
       title: "SteelX ERP",
-      role: "Lead Software Architect",
+      role: "Software Architect",
       desc: "Designed and built a comprehensive inventory and supply-chain management software architecture specifically tailored for local steel manufacturing businesses, bridging offline workflows to the cloud.",
       tags: ["React", "Node.js", "PostgreSQL"],
       icon: <Database className="w-6 h-6 text-violet-400" />,
