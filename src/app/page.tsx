@@ -13,7 +13,7 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: "Ainyx Cloud",
+      title: "Enterprise Go Microservice",
       role: "Backend Engineer",
       desc: "Architected a high-performance RESTful API microservice using Go, GoFiber, and PostgreSQL. Features zero-allocation routing, SQLC for memory-safe queries, and custom Uber Zap logging middlewares. Fully containerized with Docker.",
       tags: ["Go", "PostgreSQL", "Docker"],
