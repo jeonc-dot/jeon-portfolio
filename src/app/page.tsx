@@ -13,6 +13,14 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "Ainyx Cloud",
+      role: "Backend Engineer",
+      desc: "Architected a high-performance RESTful API microservice using Go, GoFiber, and PostgreSQL. Features zero-allocation routing, SQLC for memory-safe queries, and custom Uber Zap logging middlewares. Fully containerized with Docker.",
+      tags: ["Go", "PostgreSQL", "Docker"],
+      icon: <Database className="w-6 h-6 text-blue-400" />,
+      color: "from-blue-500/20 to-blue-500/5"
+    },
+    {
       title: "Aetherra",
       role: "Hardware Founder & IoT Engineer",
       desc: "Built an end-to-end IoT hardware and software prototype to monitor environmental data in real-time. Engineered secure backend workflows for data ingestion to support algorithmic carbon credit calculations.",
@@ -91,7 +99,7 @@ export default function Portfolio() {
             I engineer complex <br className="hidden sm:block"/> software & AI systems.
           </h1>
           <p className="text-lg text-zinc-400 leading-relaxed mb-8">
-            Full-Stack Engineer & Architect based in Bengaluru. I specialize in bridging legacy systems to the cloud, building scalable SaaS platforms, and integrating physical IoT hardware.
+            Full-Stack Engineer based in Bengaluru. I specialize in bridging legacy systems to the cloud, building scalable SaaS platforms, and integrating physical IoT hardware.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="mailto:jeonc180@gmail.com" className="px-6 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-transform shadow-lg shadow-white/10 flex items-center gap-2">
