@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jeon Prince | Next.js & AI SaaS Architect",
-  description: "Full-Stack Next.js 15 & AI SaaS Engineer holding an official IBM Certified Big Data Engineer badge.",
+  title: "Jeon Prince | Full-Stack Engineer & IBM Certified Big Data Engineer",
+  description: "Full-Stack Engineer specializing in Next.js 15, Python, and cloud analytics. IBM Certified Big Data Engineer building production B2B platforms.",
 };
 
 export default function RootLayout({

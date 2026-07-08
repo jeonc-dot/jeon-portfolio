@@ -11,11 +11,12 @@ const GithubIcon = () => (
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
 
-  const projects = [
+  const clientProjects = [
     {
       title: "SteelX ERP",
-      role: "Software Architect (Client Build)",
-      desc: "Cloud-based enterprise resource planning and inventory command center tailored for industrial manufacturing operations.",
+      category: "Client Project",
+      role: "Lead Developer — SteelX Innovation",
+      desc: "Cloud-based enterprise resource planning and inventory command center built for a regional steel manufacturing client.",
       tags: ["Next.js 15", "PostgreSQL", "Node.js", "RBAC"],
       icon: <Database className="w-6 h-6 text-violet-400" />,
       color: "from-violet-500/20 to-violet-500/5",
@@ -25,9 +26,42 @@ export default function Portfolio() {
       impact: "Centralized daily factory workflows into a secure cloud dashboard, eliminating stockouts and providing real-time P&L visibility across all manufacturing units."
     },
     {
+      title: "EazyBillz",
+      category: "Client Project",
+      role: "Full-Stack Engineer — Bharat Finance",
+      desc: "Background database synchronization agent and cloud analytics dashboard built for a regional finance client to modernize their legacy desktop accounting software.",
+      tags: ["Node.js", "Next.js", "FoxPro (.DBF)", "Cloud Sync"],
+      icon: <Terminal className="w-6 h-6 text-cyan-400" />,
+      color: "from-cyan-500/20 to-cyan-500/5",
+      image: "/projects/eazybillz.png",
+      problem: "Established regional enterprises often rely on legacy accounting software built on archaic FoxPro (.DBF) databases. Fully replacing these systems risks operational downtime and catastrophic data loss.",
+      architecture: "Engineered a custom local background synchronization agent using Node.js that safely reads and extracts daily financial transaction records from legacy FoxPro database files. Transformed and securely transmitted the extracted data to a modern, mobile-responsive Next.js cloud dashboard.",
+      impact: "Enabled business owners to access live financial analytics and daily transaction summaries on mobile devices without disrupting existing desktop accounting operations."
+    },
+  ];
+
+  const founderProjects = [
+    {
+      title: "Aetherra",
+      category: "Founder Project",
+      role: "Founder & Lead Engineer",
+      desc: "End-to-end IoT hardware and cloud software platform engineered for real-time environmental telemetry and carbon offset auditing.",
+      tags: ["Python", "FastAPI", "Next.js", "IoT Telemetry"],
+      icon: <Cloud className="w-6 h-6 text-emerald-400" />,
+      color: "from-emerald-500/20 to-emerald-500/5",
+      image: "/projects/aetherra.png",
+      problem: "Traditional environmental auditing relies on manual, periodic sampling. Verifying green initiatives and carbon credit eligibility requires continuous, tamper-proof environmental data streamed directly from physical field sensors.",
+      architecture: "Engineered secure backend data ingestion workflows capable of receiving, parsing, and validating continuous time-series data streams from IoT hardware sensors. Built algorithmic calculation engines that process environmental variables (temperature, air quality, humidity) to quantify carbon offset metrics in real time.",
+      impact: "Bridged physical sensor hardware with cloud analytics, enabling continuous monitoring, reporting, and verification (MRV) for climate initiatives."
+    },
+  ];
+
+  const labProjects = [
+    {
       title: "Enterprise Go Microservice",
-      role: "Backend Architect",
-      desc: "High-performance RESTful API microservice engineered for low-latency enterprise data ingestion and memory-safe processing.",
+      category: "Engineering Lab",
+      role: "Solo Developer",
+      desc: "High-performance RESTful API microservice built as a deep-dive into Go for low-latency data ingestion and memory-safe processing.",
       tags: ["Go (Golang)", "GoFiber", "PostgreSQL", "SQLC", "Docker"],
       icon: <Database className="w-6 h-6 text-blue-400" />,
       color: "from-blue-500/20 to-blue-500/5",
@@ -37,32 +71,9 @@ export default function Portfolio() {
       impact: "Delivered a lightweight, highly scalable microservice capable of processing high-volume concurrent API requests with minimal CPU and memory footprint."
     },
     {
-      title: "Aetherra",
-      role: "Hardware Founder & IoT Engineer",
-      desc: "End-to-end IoT hardware and cloud software platform engineered for real-time environmental telemetry and carbon offset auditing.",
-      tags: ["Python", "FastAPI", "Next.js", "IoT Telemetry"],
-      icon: <Cloud className="w-6 h-6 text-emerald-400" />,
-      color: "from-emerald-500/20 to-emerald-500/5",
-      image: "/projects/aetherra.png",
-      problem: "Traditional environmental auditing relies on manual, periodic sampling. Verifying green initiatives and carbon credit eligibility requires continuous, tamper-proof environmental data streamed directly from physical field sensors.",
-      architecture: "Engineered secure backend data ingestion workflows capable of receiving, parsing, and validating continuous time-series data streams from IoT hardware sensors. Architected algorithmic calculation engines that process environmental variables (temperature, air quality, humidity) to quantify carbon offset metrics in real time.",
-      impact: "Bridged physical sensor hardware with cloud analytics, enabling continuous monitoring, reporting, and verification (MRV) for climate initiatives."
-    },
-    {
-      title: "EazyBillz",
-      role: "Full-Stack Integration Engineer",
-      desc: "Background database synchronization agent and cloud analytics dashboard designed to modernize legacy desktop accounting software.",
-      tags: ["Node.js", "Next.js", "FoxPro (.DBF)", "Cloud Sync"],
-      icon: <Terminal className="w-6 h-6 text-cyan-400" />,
-      color: "from-cyan-500/20 to-cyan-500/5",
-      image: "/projects/eazybillz.png",
-      problem: "Established regional enterprises often rely on legacy accounting software built on archaic FoxPro (.DBF) databases. Fully replacing these systems risks operational downtime and catastrophic data loss.",
-      architecture: "Engineered a custom local background synchronization agent using Node.js that safely reads and extracts daily financial transaction records from legacy FoxPro database files. Transformed and securely transmitted the extracted data to a modern, mobile-responsive Next.js cloud dashboard.",
-      impact: "Enabled business owners to access live financial analytics and daily transaction summaries on mobile devices without disrupting existing desktop accounting operations."
-    },
-    {
       title: "MedFleet",
-      role: "Full-Stack Developer",
+      category: "Engineering Lab",
+      role: "Solo Developer",
       desc: "Emergency medical logistics and ambulance dispatch platform featuring live geospatial tracking and zero-latency transaction processing.",
       tags: ["Python", "SQLite", "Leaflet.js", "Geospatial"],
       icon: <Activity className="w-6 h-6 text-rose-400" />,
@@ -74,20 +85,22 @@ export default function Portfolio() {
     },
     {
       title: "Cipher Studio",
-      role: "Security & AI Architect",
-      desc: "Experimental multi-agent AI coding environment designed to mathematically verify software logic and eliminate security vulnerabilities.",
+      category: "Engineering Lab",
+      role: "Solo Developer",
+      desc: "Experimental multi-agent AI coding environment that uses multiple LLM models to cross-verify generated code for security vulnerabilities.",
       tags: ["Python", "FastAPI", "Agentic AI", "LLM Council"],
       icon: <Cpu className="w-6 h-6 text-amber-400" />,
       color: "from-amber-500/20 to-amber-500/5",
       image: "/projects/cipher.png",
       problem: "Single-prompt AI code generators frequently produce subtle syntax errors, security flaws, and hallucinations that create severe vulnerabilities in production environments.",
-      architecture: "Architected an interactive council framework where specialized AI models (Architect, Security Auditor, and Validator) debate and critique code logic asynchronously. Implemented strict verification guardrails that require unanimous council consensus on security and mathematical correctness before code is finalized.",
+      architecture: "Built an interactive council framework where specialized AI models (Architect, Security Auditor, and Validator) debate and critique code logic asynchronously. Implemented verification guardrails that require unanimous council consensus on security correctness before code is finalized.",
       impact: "Reduced AI-generated code vulnerabilities by introducing multi-model verification and automated security auditing into the development loop."
     },
     {
       title: "Sentinel OS",
-      role: "Backend Architect",
-      desc: "Real-time situational awareness and encrypted telemetry portal engineered for enterprise field operations and remote asset management.",
+      category: "Engineering Lab",
+      role: "Solo Developer",
+      desc: "Real-time situational awareness and encrypted telemetry portal for enterprise field operations and remote asset management.",
       tags: ["WebSockets", "Next.js", "Encrypted Streams", "MongoDB"],
       icon: <Shield className="w-6 h-6 text-indigo-400" />,
       color: "from-indigo-500/20 to-indigo-500/5",
@@ -124,10 +137,10 @@ export default function Portfolio() {
              <span className="text-2xl text-white font-bold tracking-tighter">JP</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-            I engineer complex <br className="hidden sm:block"/> software & AI systems.
+            I build software that solves <br className="hidden sm:block"/> real business problems.
           </h1>
           <p className="text-lg text-zinc-400 leading-relaxed mb-8">
-            Full-Stack Next.js & Python Architect based in Bengaluru. Holding an official IBM Certified Big Data Engineer badge and Upwork Rising Talent distinction. I specialize in bridging legacy systems to the cloud, building scalable SaaS platforms, and integrating physical IoT hardware.
+            Full-Stack Engineer based in Bengaluru, India. IBM Certified Big Data Engineer and Upwork Rising Talent. I specialize in building production B2B platforms — from legacy-to-cloud data bridges to multi-tenant ERP systems and IoT telemetry pipelines.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="mailto:jeonc180@gmail.com" className="px-6 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-transform shadow-lg shadow-white/10 flex items-center gap-2">
@@ -143,30 +156,134 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Selected Work Grid */}
-        <section className="mb-24">
-          <h2 className="text-2xl font-bold text-white mb-2 text-center tracking-tight">Selected Work</h2>
-          <p className="text-center text-zinc-500 mb-12 text-sm">Click on any project to view technical specifications and architecture.</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((proj, idx) => (
+        {/* Project Card Component */}
+        {(() => {
+          const ProjectCard = ({ proj, idx }: { proj: any; idx: number }) => (
+            <div 
+              key={idx} 
+              onClick={() => setSelectedProject(proj)}
+              className="cursor-pointer group relative p-6 rounded-3xl bg-zinc-900/50 border border-white/5 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 overflow-hidden shadow-lg flex flex-col justify-between"
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${proj.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+              
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-12 h-12 bg-zinc-950 rounded-2xl flex items-center justify-center shadow-md border border-white/5 group-hover:scale-110 transition-transform">
+                    {proj.icon}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${
+                      proj.category === 'Client Project' 
+                        ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' 
+                        : proj.category === 'Founder Project'
+                        ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                        : 'bg-zinc-500/10 text-zinc-400 border-white/5'
+                    }`}>
+                      {proj.category}
+                    </span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-1">{proj.title}</h3>
+                <p className="text-xs text-zinc-500 mb-3 font-medium">{proj.tags[0]}</p>
+                <p className="text-sm text-zinc-400 mb-6 flex-grow line-clamp-3">{proj.desc}</p>
+                <div className="flex items-center text-xs font-semibold text-zinc-500 group-hover:text-white transition-colors">
+                  View Case Study <ArrowUpRight className="w-3 h-3 ml-1" />
+                </div>
+              </div>
+            </div>
+          );
+          return null;
+        })()}
+
+        {/* Client Work */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-white mb-2 text-center tracking-tight">Client Work</h2>
+          <p className="text-center text-zinc-500 mb-10 text-sm">Production systems built and deployed for paying enterprise clients.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {clientProjects.map((proj, idx) => (
               <div 
                 key={idx} 
                 onClick={() => setSelectedProject(proj)}
                 className="cursor-pointer group relative p-6 rounded-3xl bg-zinc-900/50 border border-white/5 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 overflow-hidden shadow-lg flex flex-col justify-between"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${proj.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-12 h-12 bg-zinc-950 rounded-2xl flex items-center justify-center shadow-md border border-white/5 group-hover:scale-110 transition-transform">
                       {proj.icon}
                     </div>
-                    <span className="text-xs font-semibold px-2.5 py-1 bg-black/40 rounded-full text-zinc-400 border border-white/5">
-                      {proj.tags[0]}
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                      Client Project
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{proj.title}</h3>
+                  <h3 className="text-xl font-bold text-white mb-1">{proj.title}</h3>
+                  <p className="text-xs text-zinc-500 mb-3 font-medium">{proj.role}</p>
+                  <p className="text-sm text-zinc-400 mb-6 flex-grow line-clamp-3">{proj.desc}</p>
+                  <div className="flex items-center text-xs font-semibold text-zinc-500 group-hover:text-white transition-colors">
+                    View Case Study <ArrowUpRight className="w-3 h-3 ml-1" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Founder Project */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-white mb-2 text-center tracking-tight">Founder Project</h2>
+          <p className="text-center text-zinc-500 mb-10 text-sm">My own startup — currently in active development.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {founderProjects.map((proj, idx) => (
+              <div 
+                key={idx} 
+                onClick={() => setSelectedProject(proj)}
+                className="cursor-pointer group relative p-6 rounded-3xl bg-zinc-900/50 border border-white/5 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 overflow-hidden shadow-lg flex flex-col justify-between"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${proj.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 bg-zinc-950 rounded-2xl flex items-center justify-center shadow-md border border-white/5 group-hover:scale-110 transition-transform">
+                      {proj.icon}
+                    </div>
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                      Founder Project
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-1">{proj.title}</h3>
+                  <p className="text-xs text-zinc-500 mb-3 font-medium">{proj.role}</p>
+                  <p className="text-sm text-zinc-400 mb-6 flex-grow line-clamp-3">{proj.desc}</p>
+                  <div className="flex items-center text-xs font-semibold text-zinc-500 group-hover:text-white transition-colors">
+                    View Case Study <ArrowUpRight className="w-3 h-3 ml-1" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Engineering Labs */}
+        <section className="mb-24">
+          <h2 className="text-2xl font-bold text-white mb-2 text-center tracking-tight">Engineering Labs</h2>
+          <p className="text-center text-zinc-500 mb-10 text-sm">Personal projects and technical explorations built to sharpen my engineering skills.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {labProjects.map((proj, idx) => (
+              <div 
+                key={idx} 
+                onClick={() => setSelectedProject(proj)}
+                className="cursor-pointer group relative p-6 rounded-3xl bg-zinc-900/50 border border-white/5 hover:border-white/20 transition-all duration-300 hover:-translate-y-1 overflow-hidden shadow-lg flex flex-col justify-between"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${proj.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 bg-zinc-950 rounded-2xl flex items-center justify-center shadow-md border border-white/5 group-hover:scale-110 transition-transform">
+                      {proj.icon}
+                    </div>
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-zinc-500/10 text-zinc-400 border border-white/5">
+                      Engineering Lab
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-1">{proj.title}</h3>
+                  <p className="text-xs text-zinc-500 mb-3 font-medium">{proj.tags[0]}</p>
                   <p className="text-sm text-zinc-400 mb-6 flex-grow line-clamp-3">{proj.desc}</p>
                   <div className="flex items-center text-xs font-semibold text-zinc-500 group-hover:text-white transition-colors">
                     View Case Study <ArrowUpRight className="w-3 h-3 ml-1" />
@@ -183,10 +300,10 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-zinc-400 leading-relaxed">
             <div>
               <p className="mb-4">
-                Most developers simply take tickets and copy-paste code. I operate as a technical partner and systems architect. Over the last 3 years, through independent contracts and custom builds, I have helped regional businesses and tech founders modernize their infrastructure.
+                I operate as a technical partner, not just a ticket-taker. Through independent client contracts and building my own startup, I have delivered production systems for regional businesses that handle real money and real operational data.
               </p>
               <p>
-                Whether it is migrating legacy FoxPro databases into live cloud dashboards, building multi-tenant ERP software for industrial manufacturers, or engineering zero-latency Python and Go microservices, I build software that handles real money, real data, and real operational workflows.
+                Whether it is migrating legacy FoxPro databases into live cloud dashboards, building multi-tenant ERP software for industrial manufacturers, or engineering Python and Node.js microservices, I build software that works in the real world — not just in demos.
               </p>
             </div>
             <div className="space-y-4 bg-black/40 p-6 rounded-2xl border border-white/5">
