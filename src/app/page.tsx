@@ -38,6 +38,19 @@ export default function Portfolio() {
       architecture: "Engineered a custom local background synchronization agent using Node.js that safely reads and extracts daily financial transaction records from legacy FoxPro database files. Transformed and securely transmitted the extracted data to a modern, mobile-responsive Next.js cloud dashboard.",
       impact: "Enabled business owners to access live financial analytics and daily transaction summaries on mobile devices without disrupting existing desktop accounting operations."
     },
+    {
+      title: "Enterprise BI & Big Data Analytics Engine",
+      category: "Client Project",
+      role: "Big Data Engineer & BI Developer",
+      desc: "High-contrast executive Business Intelligence terminals engineered using Microsoft Power BI and structured Big Data modeling pipelines for C-suite decision-makers.",
+      tags: ["Power BI", "Data Analytics", "Big Data", "ESG Telemetry"],
+      icon: <Activity className="w-6 h-6 text-amber-400" />,
+      color: "from-amber-500/20 to-amber-500/5",
+      image: "/projects/bi-engine.png",
+      problem: "C-suite executives and enterprise decision-makers often struggle with fragmented Excel datasets and disconnected operational metrics, making it difficult to track multi-currency revenue growth ($57.79M+ profit tracking), supply chain carbon compliance (3.71M+ tonnes CO2), and global demographic trends in real time.",
+      architecture: "Engineered automated Big Data ingestion and statistical modeling pipelines using Microsoft Power BI and structured Excel modeling. Designed real-time telematics tracking for Supply Chain ESG Carbon compliance, multi-currency financial revenue growth models, and large-scale public health aggregation datasets with interactive filtering and predictive modeling.",
+      impact: "Delivered an executive command suite that transforms raw multi-million-dollar transaction logs and telemetry streams into instant, high-contrast visual intelligence for executive decision-making."
+    },
   ];
 
   const founderProjects = [
