@@ -47,6 +47,7 @@ export default function Portfolio() {
       icon: <Activity className="w-6 h-6 text-amber-400" />,
       color: "from-amber-500/20 to-amber-500/5",
       image: "/projects/bi-engine.png",
+      images: ["/projects/bi-engine.png", "/projects/bi-esg.png", "/projects/bi-health.png"],
       problem: "C-suite executives and enterprise decision-makers often struggle with fragmented Excel datasets and disconnected operational metrics, making it difficult to track multi-currency revenue growth ($57.79M+ profit tracking), supply chain carbon compliance (3.71M+ tonnes CO2), and global demographic trends in real time.",
       architecture: "Engineered automated Big Data ingestion and statistical modeling pipelines using Microsoft Power BI and structured Excel modeling. Designed real-time telematics tracking for Supply Chain ESG Carbon compliance, multi-currency financial revenue growth models, and large-scale public health aggregation datasets with interactive filtering and predictive modeling.",
       impact: "Delivered an executive command suite that transforms raw multi-million-dollar transaction logs and telemetry streams into instant, high-contrast visual intelligence for executive decision-making."
@@ -386,7 +387,15 @@ export default function Portfolio() {
             </div>
 
             {/* Optional Screenshot Rendering */}
-            {selectedProject.image ? (
+            {selectedProject.images && selectedProject.images.length > 0 ? (
+              <div className="mb-8 space-y-4">
+                {selectedProject.images.map((imgUrl: string, index: number) => (
+                  <div key={index} className="rounded-2xl overflow-hidden border border-white/10 bg-black/50 shadow-lg">
+                    <img src={imgUrl} alt={`${selectedProject.title} ${index + 1}`} className="w-full h-auto object-cover" />
+                  </div>
+                ))}
+              </div>
+            ) : selectedProject.image ? (
               <div className="mb-8 rounded-2xl overflow-hidden border border-white/10 bg-black/50 shadow-lg">
                 <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-auto object-cover" />
               </div>
